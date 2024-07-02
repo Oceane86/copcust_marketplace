@@ -1,6 +1,5 @@
 // pages/signup.js
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { auth, db } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
@@ -69,10 +68,6 @@ export default function Signup() {
 
       setSignupSuccess(true);
 
-      setTimeout(() => {
-        router.push("/");
-      }, 2000);
-
     } catch (error) {
       console.error("Error signing up:", error);
       if (error.code === "auth/email-already-in-use") {
@@ -82,6 +77,15 @@ export default function Signup() {
       }
     }
   };
+
+  // useEffect to redirect on signup success
+  useEffect(() => {
+    if (signupSuccess) {
+      setTimeout(() => {
+        router.push("/verification"); // Replace with your verification page route
+      }, 2000); // Adjust delay as needed
+    }
+  }, [signupSuccess]);
 
   return (
     <div className="container">
