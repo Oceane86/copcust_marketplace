@@ -1,10 +1,9 @@
 // pages/verification.js
-
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { getAuth, sendEmailVerification } from "firebase/auth";
+import { sendEmailVerification } from "firebase/auth";
 import { auth } from "../config/firebase";
-import styles from "../app/styles/verification.css";
+import styles from "../app/styles/verification.module.css"; // Utilisation de module.css
 
 export default function Verification() {
   const [email, setEmail] = useState("");

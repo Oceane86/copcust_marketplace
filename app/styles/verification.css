@@ -8,7 +8,7 @@
     background-color: #f5f5f5;
   }
   
-  .signup-box {
+  .verificationBox {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 8px;
@@ -17,58 +17,35 @@
     width: 350px;
   }
   
-  .signup-box h1 {
+  .verificationBox h1 {
     font-size: 24px;
     margin-bottom: 10px;
   }
   
-  .signup-form {
-    margin-top: 20px;
+  .verificationBox p {
+    font-size: 16px;
+    margin-bottom: 20px;
   }
   
-  .input-field {
+  .inputContainer {
+    margin-bottom: 20px;
+  }
+  
+  .inputField {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
-    margin-bottom: 10px;
   }
   
-  .password-input-container {
-    position: relative;
+  .submitButton {
+    display: flex;
+    justify-content: center;
   }
   
-  .password-toggle {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    cursor: pointer;
-  }
-  
-  .password-requirements {
-    font-size: 12px;
-    color: #666666;
-    text-align: left;
-    margin-top: 5px;
-    display: block;
-  }
-  
-  .error-message {
-    color: red;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .success-message {
-    color: green;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .signup-button {
+  .submitButton button {
     background-color: #000000;
     color: #ffffff;
     border: none;
@@ -76,10 +53,19 @@
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    margin-top: 20px;
   }
   
-  .signup-button:hover {
+  .submitButton button:hover {
     background-color: #333333;
+  }
+  
+  .errorMessage {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .successMessage {
+    color: green;
+    font-weight: bold;
   }
   
