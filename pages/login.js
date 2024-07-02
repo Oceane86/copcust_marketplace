@@ -1,4 +1,4 @@
-import "../app/styles/login.css";
+import "../styles/login.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, googleProvider } from "../config/firebase";
@@ -79,4 +79,3 @@ export default function Login() {
     </div>
   );
 }
-
