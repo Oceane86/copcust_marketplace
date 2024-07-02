@@ -1,3 +1,5 @@
+// pages/verification.js
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { getAuth, sendEmailVerification } from "firebase/auth";

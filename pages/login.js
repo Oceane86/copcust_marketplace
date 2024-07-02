@@ -1,8 +1,10 @@
+// pages/login.js
+
 import "../app/styles/login.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, googleProvider } from "../config/firebase";
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -25,6 +27,19 @@ export default function Login() {
       router.push("/");
     } catch (error) {
       console.error("Error logging in with Google:", error);
+    }
+  };
+
+  const handleForgotPassword = async () => {
+    try {
+      await sendPasswordResetEmail(auth, email);
+      console.log("Password reset email sent.");
+      // Afficher un message à l'utilisateur indiquant que l'e-mail de réinitialisation a été envoyé
+      alert("Un e-mail de réinitialisation de mot de passe a été envoyé. Veuillez vérifier votre boîte de réception.");
+    } catch (error) {
+      console.error("Error sending password reset email:", error);
+      // Gérer les erreurs liées à l'envoi de l'e-mail de réinitialisation
+      alert("Erreur lors de l'envoi de l'e-mail de réinitialisation de mot de passe. Veuillez réessayer plus tard.");
     }
   };
 
@@ -56,7 +71,7 @@ export default function Login() {
             aria-required="true"
           />
           <div className="forgot-password">
-            <a href="#" aria-label="Mot de passe oublié">Mot de passe oublié ?</a>
+            <a href="#" onClick={handleForgotPassword}>Mot de passe oublié ?</a>
           </div>
           <button type="submit" className="login-button">Connexion</button>
         </form>
