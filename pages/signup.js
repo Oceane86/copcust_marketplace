@@ -1,4 +1,5 @@
 // pages/signup.js
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, db } from "../config/firebase";
@@ -103,7 +104,7 @@ export default function Signup() {
           </small>
 
           <label htmlFor="confirmation mail" className="sr-only">Confirmation mail</label>
-          <div className="password-input-container">
+          <div className="password_confirmation-input-container">
             <input
               type={passwordVisible ? "text" : "password"}
               id="confirmation mail"
