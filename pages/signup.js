@@ -143,7 +143,7 @@ export default function Signup() {
           </button>
         </form>
         {signupSuccess && (
-          <p className="success-message">Compte créé avec succès. Redirection vers le marché...</p>
+          <p className="success-message">Compte créé avec succès. Redirection vers la marketplace...</p>
         )}
       </div>
     </div>

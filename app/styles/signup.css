@@ -7,15 +7,14 @@
   
   .password-toggle {
     position: absolute;
-    right: 10px; /* Adjust position as needed */
+    right: 10px; 
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    width: 20px; /* Adjust width and height of the icon */
+    width: 20px; 
     height: auto;
   }
   
-  /* Rest of your existing styles for signup.css */
   
   body {
     font-family: Arial, sans-serif;
