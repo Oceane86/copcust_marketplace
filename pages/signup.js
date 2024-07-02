@@ -7,6 +7,7 @@ import { auth, db } from "../config/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import "../app/styles/signup.css";
+import eyeIcon from "../pages/assets/img/eye.png"; 
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,7 @@ export default function Signup() {
   const [lastName, setLastName] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [signupError, setSignupError] = useState(null);
-  const [passwordVisible, setPasswordVisible] = useState(false); // State for password visibility
+  const [passwordVisible, setPasswordVisible] = useState(false); 
   const router = useRouter();
 
   // Password visibility toggle function
@@ -89,9 +90,12 @@ export default function Signup() {
               required
               aria-required="true"
             />
-            <span className="password-toggle" onClick={togglePasswordVisibility}>
-              {passwordVisible ? "👁️" : "👁️‍🗨️"}
-            </span>
+            <img
+              src={eyeIcon}
+              alt="Toggle password visibility"
+              className="password-toggle"
+              onClick={togglePasswordVisibility}
+            />
           </div>
           <small className="password-requirements">
             • 8 caractères minimum, un numéro,<br />
@@ -99,6 +103,20 @@ export default function Signup() {
             • une Majuscule minimum,<br />
             • une minuscule minimum
           </small>
+
+          <label htmlFor="confirmation mail" className="sr-only">Confirmation mail</label>
+          <div className="password-input-container">
+            <input
+              type={passwordVisible ? "text" : "password"}
+              id="confirmation mail"
+              placeholder="Confirmation mail"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input-field"
+              required
+              aria-required="true"
+            />
+          </div>
           {signupError && <p className="error-message">{signupError}</p>}
           <button type="submit" className="signup-button">
             Valider

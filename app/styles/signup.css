@@ -1,6 +1,23 @@
 /* Signup.css */
 
-body {
+
+.password-input-container {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    right: 10px; /* Adjust position as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px; /* Adjust width and height of the icon */
+    height: auto;
+  }
+  
+  /* Rest of your existing styles for signup.css */
+  
+  body {
     font-family: Arial, sans-serif;
     background-color: #f3f4f6;
     display: flex;
@@ -98,5 +115,4 @@ body {
   .account a {
     color: #000;
   }
-  
   
