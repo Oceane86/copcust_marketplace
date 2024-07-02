@@ -1,5 +1,6 @@
 // pages/verification.js
 
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { sendEmailVerification } from "firebase/auth";
@@ -31,23 +32,25 @@ export default function Verification() {
 
   return (
     <div className={styles.container}>
-      <h1>vérification mail</h1>
-      <p>Checker ta boite mail pour valider ton compte</p>
-      <input
-        type="text"
-        placeholder="Code de validation"
-        value={code}
-        onChange={(e) => setCode(e.target.value)}
-        className={styles.inputField}
-      />
-      <button onClick={handleEmailVerification} className={styles.submitButton}>
-        Valider
-      </button>
-      <button className={styles.resendButton}>
-        Renvoyer le code
-      </button>
-      {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
-      {verificationSuccess && <p className={styles.successMessage}>Un email de vérification a été envoyé ! Veuillez vérifier votre boîte de réception.</p>}
+      <div className={styles.verificationBox}>
+        <h1>vérification mail</h1>
+        <p>Checker ta boite mail pour valider ton compte</p>
+        <input
+          type="text"
+          placeholder="Code de validation"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+          className={styles.inputField}
+        />
+        <button onClick={handleEmailVerification} className={styles.submitButton}>
+          Valider
+        </button>
+        <button className={styles.resendButton}>
+          Renvoyer le code
+        </button>
+        {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
+        {verificationSuccess && <p className={styles.successMessage}>Un email de vérification a été envoyé ! Veuillez vérifier votre boîte de réception.</p>}
+      </div>
     </div>
   );
 }
