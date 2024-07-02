@@ -29,13 +29,29 @@ export default function Signup() {
     e.preventDefault();
     try {
       // Password validation checks
-      if (password.length < 8 || !/[0-9]/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password) || !/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
-        setSignupError("Password must be at least 8 characters long and include at least one number, one special character, one uppercase letter, and one lowercase letter.");
+      if (password.length < 8) {
+        setSignupError("Le mot de passe doit comporter au moins 8 caractères.");
+        return;
+      }
+      if (!/[0-9]/.test(password)) {
+        setSignupError("Le mot de passe doit inclure au moins un chiffre.");
+        return;
+      }
+      if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+        setSignupError("Le mot de passe doit inclure au moins un caractère spécial.");
+        return;
+      }
+      if (!/[A-Z]/.test(password)) {
+        setSignupError("Le mot de passe doit inclure au moins une lettre majuscule.");
+        return;
+      }
+      if (!/[a-z]/.test(password)) {
+        setSignupError("Le mot de passe doit inclure au moins une lettre minuscule.");
         return;
       }
 
       if (password !== passwordConfirmation) {
-        setSignupError("Password and confirmation do not match.");
+        setSignupError("Le mot de passe et la confirmation ne correspondent pas.");
         return;
       }
 
@@ -60,9 +76,9 @@ export default function Signup() {
     } catch (error) {
       console.error("Error signing up:", error);
       if (error.code === "auth/email-already-in-use") {
-        setSignupError("Email address is already in use.");
+        setSignupError("Cette adresse e-mail est déjà utilisée.");
       } else {
-        setSignupError("Failed to sign up. Please try again later.");
+        setSignupError("Échec de l'inscription. Veuillez réessayer plus tard.");
       }
     }
   };
@@ -102,13 +118,6 @@ export default function Signup() {
               onClick={togglePasswordVisibility}
             />
           </div>
-          <small className={`password-requirements ${signupError ? 'error-text' : ''}`}>
-            • 8 caractères minimum, un numéro,<br />
-            • un caractère spatial, #@,[?/.;:<br />
-            • une Majuscule minimum,<br />
-            • une minuscule minimum
-          </small>
-
           <label htmlFor="password_confirmation" className="sr-only">Confirmation mail</label>
           <div className="password_confirmation-input-container">
             <input
@@ -123,13 +132,18 @@ export default function Signup() {
             />
           </div>
           {signupError && <p className="error-message">{signupError}</p>}
+          <small className={`password-requirements ${signupError ? 'error-text' : ''}`}>
+            • 8 caractères minimum, un numéro,<br />
+            • un caractère spécial, #@,[?/.;:<br />
+            • une majuscule minimum,<br />
+            • une minuscule minimum
+          </small>
           <button type="submit" className="signup-button">
             Valider
           </button>
         </form>
-
         {signupSuccess && (
-          <p className="success-message">Account created successfully. Redirecting to marketplace...</p>
+          <p className="success-message">Compte créé avec succès. Redirection vers le marché...</p>
         )}
       </div>
     </div>
