@@ -40,14 +40,14 @@ export default function Verification() {
           placeholder="Code de validation"
           value={code}
           onChange={(e) => setCode(e.target.value)}
-          className={styles.inputField}
+           className="sr-only"
         />
         <button onClick={handleEmailVerification} className={styles.submitButton}>
           Valider
         </button>
-        <button className={styles.resendButton}>
+        <div className={styles.resendButton}>
           Renvoyer le code
-        </button>
+        </div>
         {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
         {verificationSuccess && <p className={styles.successMessage}>Un email de vérification a été envoyé ! Veuillez vérifier votre boîte de réception.</p>}
       </div>
