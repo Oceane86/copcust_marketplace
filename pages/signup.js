@@ -1,5 +1,6 @@
 // pages/signup.js
 
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, db } from "../config/firebase";
@@ -14,11 +15,24 @@ export default function Signup() {
   const [lastName, setLastName] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
   const [signupError, setSignupError] = useState(null);
+  const [passwordVisible, setPasswordVisible] = useState(false); // State for password visibility
   const router = useRouter();
 
+  // Password visibility toggle function
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  // Function to handle signup form submission
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
+      // Password validation checks
+      if (password.length < 8 || !/[0-9]/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password) || !/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
+        setSignupError("Password must be at least 8 characters long and include at least one number, one special character, one uppercase letter, and one lowercase letter.");
+        return;
+      }
+
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
@@ -63,37 +77,34 @@ export default function Signup() {
             required
             aria-required="true"
           />
-          <label htmlFor="password" className="sr-only">Mots de passe</label>
-          <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="input-field"
-            required
-            aria-required="true"
-          />
-         
-         <small className="password-requirements">
+          <label htmlFor="password" className="sr-only">Password</label>
+          <div className="password-input-container">
+            <input
+              type={passwordVisible ? "text" : "password"}
+              id="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="input-field"
+              required
+              aria-required="true"
+            />
+            <span className="password-toggle" onClick={togglePasswordVisibility}>
+              {passwordVisible ? "👁️" : "👁️‍🗨️"}
+            </span>
+          </div>
+          <small className="password-requirements">
             • 8 caractères minimum, un numéro,<br />
             • un caractère spatial, #@,[?/.;:<br />
             • une Majuscule minimum,<br />
             • une minuscule minimum
           </small>
-          
-          <button type="submit" className="signup-button">
-            <a href="/verification">
-            Valider
-            </a>
-            </button>
           {signupError && <p className="error-message">{signupError}</p>}
+          <button type="submit" className="signup-button">
+            Valider
+          </button>
         </form>
 
-        <p className="account">
-            <a href="/login" className="signup-link">J'ai déjà un compte{" "}</a>
-          </p>
-        
         {signupSuccess && (
           <p className="success-message">Account created successfully. Redirecting to marketplace...</p>
         )}
