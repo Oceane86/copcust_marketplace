@@ -42,12 +42,15 @@ export default function Verification() {
           onChange={(e) => setCode(e.target.value)}
            className="input-field"
         />
-        <button onClick={handleEmailVerification} className={styles.submitButton}>
-          Valider
-        </button>
+       
         <div className="resend-link">
           Renvoyer le code
         </div>
+
+        <button onClick={handleEmailVerification}  className="login-button">
+          Valider
+        </button>
+
         {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
         {verificationSuccess && <p className={styles.successMessage}>Un email de vérification a été envoyé ! Veuillez vérifier votre boîte de réception.</p>}
       </div>
