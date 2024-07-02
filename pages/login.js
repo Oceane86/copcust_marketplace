@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, googleProvider } from "../config/firebase";
 import { signInWithEmailAndPassword, signInWithPopup, sendPasswordResetEmail } from "firebase/auth";
+import Image from 'next/image';
+import GoogleIcon from "../pages/assets/img/google.svg";
+import AppleIcon from "../pages/assets/img/mac.svg";
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -88,10 +92,11 @@ export default function Login() {
           <p>AUTRES CONNEXION</p>
           <div className="login-options">
             <button className="login-option" onClick={handleGoogleLogin} aria-label="Se connecter avec Google">
-              <img src="../pages/assets/img/google.svg" alt="Google" />
+              <Image src={GoogleIcon} alt="Google" width={24} height={24} />
+
             </button>
             <button className="login-option" onClick={handleAppleLogin} aria-label="Se connecter avec Apple">
-              <img src="../pages/assets/img/mac.svg" alt="Apple" />
+            <Image src={AppleIcon} alt="Apple" width={24} height={24} />
             </button>
           </div>
           <p className="new-account">
