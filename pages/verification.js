@@ -40,7 +40,7 @@ export default function Verification() {
           placeholder="Code de validation"
           value={code}
           onChange={(e) => setCode(e.target.value)}
-           className="sr-only"
+           className="input-field"
         />
         <button onClick={handleEmailVerification} className={styles.submitButton}>
           Valider
