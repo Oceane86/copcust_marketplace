@@ -1,0 +1,650 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.krona-one-regular {
+    font-family: "Krona One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .work-sans-regular {
+    font-family: "Work Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  
+  html,
+  body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgb(var(--background-end-rgb))
+      )
+      rgb(var(--background-start-rgb));
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  nav {
+    background-color: #171717;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+  
+  }
+  .right-links {
+    width: 50%;
+  }
+  .right-links ul li {
+    margin-left: 15px;
+  }
+  .right-links ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: end;
+  }
+  header {
+    background-color: #171717;
+    height: auto;
+    padding: 40px 20px;
+  }
+  .btn-rose {
+    background-color: #FF6B8E;
+    border: none;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+  }
+  header h1, header p {
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  .m-btn {
+    margin: 10px 0;
+  }
+  header img {
+    max-width: 100%;
+  }
+  .categories {
+    background-color: #171717;
+    padding: 40px 0px;
+    position: relative;
+  }
+  h3, h2 {
+    color: #A9FE8B;
+  }
+  .heart {
+    position: absolute;
+    right: 7%;
+    top: 0;
+  }
+  .card {
+    width: 60%;
+    position: relative;
+    margin-right: 10px;
+  }
+  .card-1 {
+    background-image: url('../../public/images/card-1.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 278px;
+  }
+  .d-flex {
+    display: flex;
+  }
+  .s-between {
+    justify-content: space-between;
+  }
+  .right-items-artist {
+    display: flex;
+      align-items: center;
+  }
+  .badge {
+    margin-left: 5px;
+  }
+  .icon-heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #fff;
+    height: fit-content;
+    padding: 10px 10px 5px;
+    border-radius: 25px;
+  }
+  .title-card {
+    background-color: #A9FE8B;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .name-artist {
+      display: flex;
+      background-color: #fff;
+      width: 142px;
+      border-radius: 39px;
+      padding: 5px 5px;
+      align-items: center;
+      justify-content: space-between;
+      position: absolute;
+      top: 10px;
+      
+  }
+  .categorie-1 h2, .categorie-1 h3 {
+    margin: 20px;
+  }
+  .cards {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 40px 0;
+    overflow-x: scroll;
+    padding-left: 20px;
+  }
+  .footer {
+    
+    background-color: #171717;
+  
+  }
+  .footer-1 {
+    display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+  }
+  .rs img {
+    margin-left: 10px;
+  }
+  .footer-2 {
+    color: #fff;
+    padding: 20px;
+  }
+  .items ul {
+  list-style-type: none;
+  }
+  .items p {
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .items ul li {
+    margin-bottom: 10px;
+  }
+  .footer-3 {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  
+  .footer-3 ul {
+    list-style-type: none;
+    display: flex;
+    font-size: 11px;
+  }
+  .footer-3 ul li {
+    margin-left: 5px;
+  }
+  .left-footer p {
+    font-size: 13px;
+  }
+  .left-footer {
+    display: flex;
+    align-items: center;
+  }
+  .left-footer img {
+    margin-right: 5px;
+  }
+  .card-categorie p {
+    color: #A9FE8B;
+    font-weight: bold;
+  }
+  .other-categories {
+    padding-left: 20px;
+    display: flex;
+  }
+  .card-categorie {
+    margin-right: 20px;
+  }
+  .artistes-partenaires {
+    background-color: #171717;
+    padding: 30px 0 30px 20px;
+    position: relative;
+  }
+  .artistes-partenaires h2, .artistes-partenaires h3 {
+    color: #FF9F68;
+  }
+  .partenaire-img {
+    position: absolute;
+  }
+  .card-p {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .title-partenaire {
+    display: flex;
+    align-items: center;
+    background-color: #FF9F68;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .left-p-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  .size-img img {
+    width: 100px;
+    height: 100px;;
+  }
+  .partenaires-cards {
+    width: 50%;
+     
+      margin: 20px 0;
+  }
+  .card-partenaire {
+    width: 97.7%;
+  }
+  .artistImage {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .badgeNoir {
+    margin-left: 10px;
+  }
+  .btn-categories, .btn-partenaires {
+    text-align: center;
+    margin: 30px 0 0;
+  }
+  .btn-categories button {
+    background-color: #A9FE8B;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    margin: auto;
+  
+  }
+  
+  .btn-partenaires button {
+    background-color: #FF9F68;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    margin: auto;
+  }
+  .valeurs {
+    background-color: #CEBEFD;
+    position: relative;
+    padding-bottom: 30px;
+  }
+  .valeurs h2 {
+    color: #171717;
+    padding: 80px 20px 0;
+  }
+  .valeurs h3 {
+    color: #CEBEFD ;
+  }
+  .valeur-card {
+    width: 90%;
+    background-color: #171717;
+    color: #CEBEFD;
+    border-radius: 20px;
+      margin: 20px auto;
+      padding: 50px 30px 30px;
+      height: 250px;
+      position: relative;
+  }
+  .icon {
+    margin-right: 20px;
+  }
+  .valeur-card h3 {
+    margin-bottom: 20px;
+  }
+  
+  .vector {
+    position: absolute;
+    right: 11px;
+      top: -17px;
+  }
+  .vector2 {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+  }
+  .artistes-partenaires h2, .artistes-partenaires h3 {
+    margin: 20px ;
+  }
+  .partenaire-img {
+    position: absolute;
+    right: 0;
+    top: 40px;
+  }
+  .vector3 {
+    position: absolute;
+    right: 26px;
+    top: 556px;
+    z-index: 10;
+  }
+  .blog-market {
+    background-color: #8EBBFF;
+    padding: 20px;
+  }
+  .blog-market h2 {
+    color: #171717;
+  }
+  .blog-market h3 {
+    color: #8EBBFF !important;
+    margin: 25px 0 15px;
+  }
+  .blog-cards {
+    background-color: #171717;
+    color: #8EBBFF;
+    border-radius: 22px;
+    margin-top: 20px;
+  }
+  .blog-card img {
+    width: 100%;
+    object-fit: fill;
+  }
+  .article-content {
+    padding: 20px;
+  }
+  .btn-blog {
+    margin: 20px auto;
+    justify-content: center;
+    display: flex;
+  }
+  .btn-blog button { 
+    border: none;
+      background-color: #171717;
+      color: #8EBBFF;
+      padding: 10px 10px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+  }
+  .btn-blog span {
+    margin-left: 10px;
+  }
+  .newsletter {
+    background-color: #171717;
+    padding: 50px 20px 0px;
+    text-align: center;
+    position: relative;
+  }
+  .newsletter input {
+    background-color: #fff;
+    border: none;
+    margin: auto;
+    width: 100%;
+    height: 60px;
+    border-radius: 5px;
+    padding-left: 5px;
+  }
+  .newsletter h3, .newsletter p {
+    color: #fff;
+  }
+  .newsletter h3 {
+    margin-bottom: 25px;
+  }
+  .newsletter p {
+    margin-bottom: 20px;
+  }
+  .newsletter button {
+    background-color: #FF6B8E;
+    border: none;
+    font-weight: bold;
+    padding: 14px 15px;
+    border-radius: 10px;
+    transform: translate3d(140px, -52px, 10px);
+  }
+  .pen {
+    position: absolute;
+      top: -80px;
+      left: 0;
+  }
+  /*Catalogue*/
+  .catalogue {
+background-color: #171717;
+  }
+.menu-catalogue {
+    display: flex;
+    align-items: center;
+    font-family: "Work Sans", sans-serif;
+    padding: 20px;
+}
+.accueil {
+    color:  #fff;
+    margin-right: 10px;
+}
+.currentPage {
+    color: #8EBBFF ;
+    margin-left: 10px;
+}
+.filter-1, .filter-2 {
+    background-color: #fff;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    font-family: "Work Sans", sans-serif;
+    
+}
+.filter {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px;
+}
+.icon-filter {
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
+    padding-top: 10px;
+    z-index: 1;
+}
+.title-catalogue {
+    color: #fff;
+    font-family: "Krona One", sans-serif;
+    text-align: center;
+    width: 100%;
+    margin: 20px 0 30px;
+
+}
+.title-catalogue h1 {
+    text-align: center;
+    width: 60%;
+    margin: 20px auto 0;
+}
+.artist-favoris {
+    background-color: #fff;
+    width: 90%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 20px 0 20px 20px;
+    position: relative;
+    font-family: "Work Sans", sans-serif;
+}
+.artist-identite {
+    display: flex;
+    align-items: center;
+
+}
+.name {
+    display: flex;
+}
+.right-id {
+    margin-left: 10px;
+}
+.vectorTop {
+    position: absolute;
+    top: -30px;
+    right: 0;
+    z-index: 0;
+}
+.cards-favoris {
+    font-family: "Work Sans", sans-serif;
+    width: 70%;
+    background-image: url("../../public/images/favoris-1.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 300px;
+    position: relative;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.name-favoris {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    width: 133px;
+    border-radius: 40px;
+    padding: 6px 5px;
+    justify-content: space-between;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.heart-icon {
+    background-color: #fff;
+    width: fit-content;
+    padding: 10px 10px 0;
+    border-radius: 30px;
+    height: 42px;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+}
+.title-favoris {
+    position: absolute;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+    width: 100%;
+    padding: 20px;
+    bottom: 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-family: "Work Sans", sans-serif;
+}
+.cards-container {
+    display: flex;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.cards-favoris {
+    flex: 0 0 auto;
+    margin-right: 16px;
+}
+.btn-favoris button{
+    border: none;
+    background-color: #171717;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    width: 170px;
+    height: 50px;
+    margin: 20px 0;
+
+}
+.btn-favoris button span {
+    margin-left: 10px;
+}
+.drops {
+    padding: 20px;
+}
+.drops h2 {
+    color: #fff;
+    font-family: "Krona One", sans-serif;
+    text-align: center;
+}
+.name-artist-favoris {
+    display: flex;
+    background-color: #fff;
+    width: 117px;
+    border-radius: 39px;
+    padding: 5px 5px;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 10px;
+    font-size: 10px;
+}
+.name-artist-favoris .right-items-artist p{
+    font-size: 10px;
+}
+.icon-heart-favoris {
+    position: absolute;
+    top: 14px;
+    right: 10px;
+    background-color: #fff;
+    height: fit-content;
+    padding: 5px 5px 1px;
+    border-radius: 25px;
+}
+.title-card-favoris {
+    background-color: #fff;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.card {
+  width: 45%;
+  margin-bottom: 20px;
+}
+.cards {
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.empty-div {
+  background-color: #fff;
+  margin: 0 20px;
+  height: 400px;
+  position: relative;
+  padding: 20px;
+}
+.btn-filter-1 {
+  justify-content: space-between;
+    display: flex;
+}
+.btn-filter-1 .btn-black {
+  background-color: #000;
+  color: #fff;
+  width: 40%;
+  padding: 10px;
+}
