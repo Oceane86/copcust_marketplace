@@ -32,14 +32,19 @@ export default function Login() {
     try {
       await sendPasswordResetEmail(auth, email);
       console.log("Password reset email sent.");
-      // Afficher un message à l'utilisateur indiquant que l'e-mail de réinitialisation a été envoyé
       alert("Un e-mail de réinitialisation de mot de passe a été envoyé. Veuillez vérifier votre boîte de réception.");
     } catch (error) {
-      console.error("Error sending password reset email:", error);
-      // Gérer les erreurs liées à l'envoi de l'e-mail de réinitialisation
-      alert("Erreur lors de l'envoi de l'e-mail de réinitialisation de mot de passe. Veuillez réessayer plus tard.");
+      console.error("Error sending password reset email:", error.code, error.message);
+      let errorMessage = "Erreur lors de l'envoi de l'e-mail de réinitialisation de mot de passe. Veuillez réessayer plus tard.";
+      if (error.code === "auth/invalid-email") {
+        errorMessage = "L'adresse e-mail saisie est invalide.";
+      } else if (error.code === "auth/user-not-found") {
+        errorMessage = "Aucun utilisateur trouvé avec cette adresse e-mail.";
+      }
+      alert(errorMessage);
     }
   };
+  
 
   const handleAppleLogin = () => {
     alert("La connexion avec Apple sera bientôt disponible !");
