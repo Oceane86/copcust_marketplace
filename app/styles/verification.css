@@ -1,3 +1,5 @@
+/* app/styles/verification.css */
+
 .container {
     display: flex;
     justify-content: center;
@@ -6,7 +8,7 @@
     background-color: #f5f5f5;
   }
   
-  .verificationBox {
+  .signup-box {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 8px;
@@ -15,50 +17,58 @@
     width: 350px;
   }
   
-  .verificationBox h1 {
+  .signup-box h1 {
     font-size: 24px;
     margin-bottom: 10px;
   }
   
-  .verificationBox p {
-    font-size: 16px;
-    margin-bottom: 20px;
+  .signup-form {
+    margin-top: 20px;
   }
   
-  .inputContainer {
-    margin-bottom: 20px;
-  }
-  
-  .inputField {
+  .input-field {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     box-sizing: border-box;
+    margin-bottom: 10px;
   }
   
-  .resendLink {
-    margin-bottom: 20px;
+  .password-input-container {
+    position: relative;
   }
   
-  .resendLink a {
-    color: #000000;
-    text-decoration: none;
-    border-bottom: 1px solid #000000;
-    padding-bottom: 2px;
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
   }
   
-  .resendLink a:hover {
-    text-decoration: underline;
+  .password-requirements {
+    font-size: 12px;
+    color: #666666;
+    text-align: left;
+    margin-top: 5px;
+    display: block;
   }
   
-  .submitButton {
-    display: flex;
-    justify-content: center;
+  .error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
   }
   
-  .submitButton button {
+  .success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .signup-button {
     background-color: #000000;
     color: #ffffff;
     border: none;
@@ -66,19 +76,10 @@
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    margin-top: 20px;
   }
   
-  .submitButton button:hover {
+  .signup-button:hover {
     background-color: #333333;
-  }
-  
-  .errorMessage {
-    color: red;
-    font-weight: bold;
-  }
-  
-  .successMessage {
-    color: green;
-    font-weight: bold;
   }
   
