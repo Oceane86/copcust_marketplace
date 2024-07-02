@@ -45,7 +45,7 @@ export default function Verification() {
         <button onClick={handleEmailVerification} className={styles.submitButton}>
           Valider
         </button>
-        <div className={styles.resendButton}>
+        <div className="resend-link">
           Renvoyer le code
         </div>
         {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}

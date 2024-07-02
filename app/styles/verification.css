@@ -75,9 +75,8 @@ body {
     background-color: #333;
   }
   
-  .resendButton {
-    background: none;
-    border: none;
+  .resend-link {
+   text-align: end;
     color: #000;
     text-decoration: underline;
     cursor: pointer;
