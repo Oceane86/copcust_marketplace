@@ -1,6 +1,4 @@
 // pages/signup.js
-
-
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, db } from "../config/firebase";
