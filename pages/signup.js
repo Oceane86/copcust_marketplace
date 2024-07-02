@@ -1,5 +1,6 @@
 // pages/signup.js
 
+
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, db } from "../config/firebase";
@@ -11,6 +12,7 @@ import eyeIcon from "../pages/assets/img/eye.png";
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [signupSuccess, setSignupSuccess] = useState(false);
@@ -30,6 +32,11 @@ export default function Signup() {
       // Password validation checks
       if (password.length < 8 || !/[0-9]/.test(password) || !/[!@#$%^&*(),.?":{}|<>]/.test(password) || !/[A-Z]/.test(password) || !/[a-z]/.test(password)) {
         setSignupError("Password must be at least 8 characters long and include at least one number, one special character, one uppercase letter, and one lowercase letter.");
+        return;
+      }
+
+      if (password !== passwordConfirmation) {
+        setSignupError("Password and confirmation do not match.");
         return;
       }
 
@@ -103,14 +110,14 @@ export default function Signup() {
             • une minuscule minimum
           </small>
 
-          <label htmlFor="confirmation mail" className="sr-only">Confirmation mail</label>
+          <label htmlFor="password_confirmation" className="sr-only">Confirmation mail</label>
           <div className="password_confirmation-input-container">
             <input
               type={passwordVisible ? "text" : "password"}
-              id="confirmation mail"
+              id="password_confirmation"
               placeholder="Confirmation mail"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={passwordConfirmation}
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
               className="input-field"
               required
               aria-required="true"
