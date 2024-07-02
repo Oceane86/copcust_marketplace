@@ -1,5 +1,3 @@
-// pages/login.js
-
 import "../app/styles/login.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -43,6 +41,11 @@ export default function Login() {
     }
   };
 
+  const handleAppleLogin = () => {
+    alert("La connexion avec Apple sera bientôt disponible !");
+    // Vous pouvez également rediriger vers une page d'information ou laisser le message d'alerte
+  };
+
   return (
     <div className="container">
       <div className="login-box">
@@ -80,10 +83,10 @@ export default function Login() {
           <p>AUTRES CONNEXION</p>
           <div className="login-options">
             <button className="login-option" onClick={handleGoogleLogin} aria-label="Se connecter avec Google">
-              <img src="/path/to/google-icon.svg" alt="Google" />
+              <img src="../pages/assets/img/google.svg" alt="Google" />
             </button>
-            <button className="login-option" aria-label="Se connecter avec Apple">
-              <img src="/path/to/apple-icon.svg" alt="Apple" />
+            <button className="login-option" onClick={handleAppleLogin} aria-label="Se connecter avec Apple">
+              <img src="../pages/assets/img/mac.svg" alt="Apple" />
             </button>
           </div>
           <p className="new-account">
