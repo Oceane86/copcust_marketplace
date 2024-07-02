@@ -98,16 +98,13 @@ body {
   }
   
   .login-option {
-    background-color: #e5e7eb;
+    background-color: black;
     border: none;
     padding: 0.75rem;
     border-radius: 50%;
     cursor: pointer;
   }
-  
-  .login-option:hover {
-    background-color: #d1d5db;
-  }
+ 
   
   .signup-link {
     text-decoration: none;
