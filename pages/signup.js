@@ -1,6 +1,5 @@
 // pages/signup.js
 
-
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { auth, db } from "../config/firebase";
@@ -103,7 +102,7 @@ export default function Signup() {
               onClick={togglePasswordVisibility}
             />
           </div>
-          <small className="password-requirements">
+          <small className={`password-requirements ${signupError ? 'error-text' : ''}`}>
             • 8 caractères minimum, un numéro,<br />
             • un caractère spatial, #@,[?/.;:<br />
             • une Majuscule minimum,<br />
