@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { getAuth, sendEmailVerification } from "firebase/auth";
 import { auth } from "../config/firebase";
-import styles from "../app/styles/verification.css"; 
+import styles from "../app/styles/verification.css";
 
 export default function Verification() {
   const [email, setEmail] = useState("");
@@ -30,23 +30,20 @@ export default function Verification() {
   return (
     <div className={styles.container}>
       <div className={styles.verificationBox}>
-        <h1>Parle nous de toi</h1>
-        <p>Checker ta boite mail pour valider ton compte</p>
+        <h1>Vérification de l'e-mail</h1>
+        <p>Veuillez saisir votre adresse e-mail pour recevoir un lien de vérification.</p>
         <div className={styles.inputContainer}>
           <input
-            type="text"
-            placeholder="Code de validation"
+            type="email"
+            placeholder="Votre adresse e-mail"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             className={styles.inputField}
           />
         </div>
-        <div className={styles.resendLink}>
-          <a href="#" onClick={handleEmailVerification}>Renvoyer le code</a>
-        </div>
         <div className={styles.submitButton}>
-          <button type="button" onClick={handleEmailVerification}>Valider</button>
+          <button type="button" onClick={handleEmailVerification}>Envoyer le lien de vérification</button>
         </div>
         {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
         {verificationSuccess && (
