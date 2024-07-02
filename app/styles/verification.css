@@ -7,48 +7,62 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 20px;
+    font-family: Arial, sans-serif;
   }
   
   h1 {
     font-size: 2rem;
     font-weight: bold;
+    text-transform: lowercase;
     margin-bottom: 20px;
+    color: #000;
   }
   
   p {
     font-size: 1rem;
     margin-bottom: 20px;
+    color: #000;
   }
   
   .inputField {
-    width: 100%;
+    width: 80%;
     max-width: 300px;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #000000;
-    border-radius: 5px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1rem;
   }
   
   .submitButton {
-    width: 100%;
+    width: 80%;
     max-width: 300px;
     padding: 10px;
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000;
+    color: #fff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
-    margin-bottom: 10px;
+    text-transform: capitalize;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .resendButton {
     background: none;
     border: none;
-    color: #000000;
+    color: #000;
     text-decoration: underline;
     cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9rem;
   }
   
   .errorMessage {
