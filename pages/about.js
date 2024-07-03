@@ -3,6 +3,7 @@
 
 import React from "react";
 import { useState } from "react";
+import { useRouter } from 'next/router'; 
 import styles from "../app/styles/about.css";
 
 export default function About() {
@@ -10,10 +11,12 @@ export default function About() {
   const [firstName, setFirstName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState("");
+  const router = useRouter(); 
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
+    router.push('/');
   };
 
   return (
