@@ -33,7 +33,7 @@ export default function Verification() {
   return (
     <div className="container">
       <div className="verification-box">
-        <h1>vérification mail</h1>
+        <h1>Vérification mail</h1>
         <p>Checker ta boite mail pour valider ton compte</p>
         <input
           type="text"
