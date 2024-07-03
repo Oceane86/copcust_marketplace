@@ -13,15 +13,16 @@ import AppleIcon from "../pages/assets/img/mac.svg";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(null); // State to manage login errors
+  const [loginError, setLoginError] = useState(null); // État pour gérer les erreurs de connexion
   const router = useRouter();
 
+  // Fonction pour gérer la connexion avec l'e-mail et le mot de passe
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoginError(null); // Reset login errors before attempting login
+    setLoginError(null); // Réinitialiser les erreurs avant de tenter la connexion
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      router.push("/");
+      router.push("/"); // Redirection vers la page d'accueil après connexion réussie
     } catch (error) {
       console.error("Error logging in:", error);
       let errorMessage = "Erreur de connexion. Veuillez réessayer.";
@@ -32,19 +33,21 @@ export default function Login() {
       } else if (error.code === "auth/wrong-password") {
         errorMessage = "Le mot de passe est incorrect.";
       }
-      setLoginError(errorMessage);
+      setLoginError(errorMessage); // Affichage du message d'erreur en cas de problème
     }
   };
 
+  // Fonction pour gérer la connexion avec Google
   const handleGoogleLogin = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
-      router.push("/");
+      router.push("/"); // Redirection vers la page d'accueil après connexion réussie
     } catch (error) {
       console.error("Error logging in with Google:", error);
     }
   };
 
+  // Fonction pour envoyer un e-mail de réinitialisation de mot de passe
   const handleForgotPassword = async () => {
     try {
       await sendPasswordResetEmail(auth, email);
@@ -62,15 +65,33 @@ export default function Login() {
     }
   };
 
+  // Fonction pour gérer la connexion avec Apple
   const handleAppleLogin = () => {
     alert("La connexion avec Apple sera bientôt disponible !");
   };
 
   return (
     <div className="container">
+      {/* Optimisation SEO */}
+      <Head>
+        <title>Connexion - MyWebsite</title>
+        <meta name="description" content="Connectez-vous à MyWebsite pour accéder à votre compte et profiter de nos services exclusifs." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.mywebsite.com/login" />
+        <meta property="og:title" content="Connexion - MyWebsite" />
+        <meta property="og:description" content="Connectez-vous à MyWebsite pour accéder à votre compte et profiter de nos services exclusifs." />
+        <meta property="og:url" content="https://www.mywebsite.com/login" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.mywebsite.com/images/login-og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Connexion - MyWebsite" />
+        <meta name="twitter:description" content="Connectez-vous à MyWebsite pour accéder à votre compte et profiter de nos services exclusifs." />
+        <meta name="twitter:image" content="https://www.mywebsite.com/images/login-twitter-image.jpg" />
+      </Head>
       <div className="login-box">
         <h1>Connecte-toi !</h1>
         <form onSubmit={handleLogin}>
+          {/* Champ pour l'adresse e-mail */}
           <label htmlFor="email" className="sr-only">E-Mail</label>
           <input
             type="email"
@@ -81,7 +102,9 @@ export default function Login() {
             className="input-field"
             required
             aria-required="true"
+            aria-label="Adresse e-mail" // Balise pour l'accessibilité
           />
+          {/* Champ pour le mot de passe */}
           <label htmlFor="password" className="sr-only">Mot de passe</label>
           <input
             type="password"
@@ -92,30 +115,38 @@ export default function Login() {
             className="input-field"
             required
             aria-required="true"
+            aria-label="Mot de passe" // Balise pour l'accessibilité
           />
-          {loginError && <p className="error-message">{loginError}</p>} {/* Display login errors */}
+          {/* Affichage des erreurs de connexion */}
+          {loginError && <p className="error-message" role="alert">{loginError}</p>}
+          {/* Lien pour réinitialiser le mot de passe */}
           <div className="forgot-password">
-            <a href="#" onClick={handleForgotPassword}>Mot de passe oublié ?</a>
+            <a href="#" onClick={handleForgotPassword} aria-label="Réinitialiser le mot de passe">Mot de passe oublié ?</a>
           </div>
-
           <div className="container-button">
-            <button type="submit" className="login-button">Connexion</button>
-
+            {/* Bouton pour soumettre le formulaire de connexion */}
+            <button type="submit" className="login-button">
+              Connexion
+            </button>
           </div>
         </form>
-        <div className="divider" role="separator"></div>
+        {/* Séparateur pour diviser les options de connexion */}
+        <div className="divider" role="separator" aria-hidden="true"></div>
         <div className="other-login">
-          <p>AUTRES CONNEXION</p>
+          <p>AUTRES CONNEXIONS</p>
           <div className="login-options">
+            {/* Bouton pour se connecter avec Google */}
             <button className="login-option" onClick={handleGoogleLogin} aria-label="Se connecter avec Google">
               <Image src={GoogleIcon} alt="Google" width={24} height={24} />
             </button>
+            {/* Bouton pour se connecter avec Apple */}
             <button className="login-option" onClick={handleAppleLogin} aria-label="Se connecter avec Apple">
               <Image src={AppleIcon} alt="Apple" width={24} height={24} />
             </button>
           </div>
           <p className="new-account">
-            <a href="/signup" className="signup-link">Pas encore de compte ?{" "}</a>
+            {/* Lien pour s'inscrire */}
+            <a href="/signup" className="signup-link" aria-label="Créer un nouveau compte">Pas encore de compte ?{" "}</a>
           </p>
         </div>
       </div>
