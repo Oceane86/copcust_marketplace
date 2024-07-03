@@ -24,7 +24,7 @@ export default function About() {
             placeholder="Nom*"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={styles.inputField}
+            className="input-field"
             required
           />
           <input
@@ -32,7 +32,7 @@ export default function About() {
             placeholder="Prénom*"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-            className={styles.inputField}
+           className="input-field"
             required
           />
           <input
@@ -40,7 +40,7 @@ export default function About() {
             placeholder="Date de naissance"
             value={birthDate}
             onChange={(e) => setBirthDate(e.target.value)}
-            className={styles.inputField}
+           className="input-field"
             required
           />
           <div className={styles.genderContainer}>

@@ -33,14 +33,15 @@ body {
     text-align: center;
   }
   
-  .inputField {
-    width: 100%;
+  .input-field {
+    width: 90%;
     padding: 1rem;
     margin-bottom: 1rem;
-    border: none;
+    border: 1px solid #d1d5db;
     border-radius: 6px;
     background-color: #000;
-    color: #fff;
+    color: white;
+    height: auto;
   }
   
   .inputField::placeholder {
