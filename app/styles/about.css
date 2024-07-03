@@ -48,29 +48,29 @@ body {
     color: #fff;
   }
   
-  .genderContainer {
+  .gender-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 1rem;
   }
   
-  .genderLabel {
+  .gender-label {
     font-size: 1rem;
     margin-bottom: 0.5rem;
   }
   
-  .genderOption {
+  .gender-option {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
   }
   
-  .genderOption input {
+  .gender-option input {
     margin-right: 0.5rem;
   }
   
-  .submitButton {
+  .submit-button {
     width: 100%;
     padding: 0.75rem;
     background-color: #000;
@@ -82,7 +82,7 @@ body {
     margin-top: 1rem;
   }
   
-  .submitButton:hover {
+  .submit-button:hover {
     background-color: #333;
   }
   

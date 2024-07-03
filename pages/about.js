@@ -46,9 +46,9 @@ export default function About() {
            className="input-field"
             required
           />
-          <div className={styles.genderContainer}>
-            <label className={styles.genderLabel}>Genre</label>
-            <div className={styles.genderOption}>
+          <div className="gender-container">
+            <label className="gender-label">Genre</label>
+            <div className="gender-option">
               <input
                 type="radio"
                 id="homme"
@@ -59,7 +59,7 @@ export default function About() {
               />
               <label htmlFor="homme">Homme</label>
             </div>
-            <div className={styles.genderOption}>
+            <div className="gender-option">
               <input
                 type="radio"
                 id="femme"
@@ -70,7 +70,7 @@ export default function About() {
               />
               <label htmlFor="femme">Femme</label>
             </div>
-            <div className={styles.genderOption}>
+            <div className="gender-option">
               <input
                 type="radio"
                 id="autre"
@@ -82,7 +82,7 @@ export default function About() {
               <label htmlFor="autre">Autre</label>
             </div>
           </div>
-          <button type="submit" className={styles.submitButton}>
+          <button type="submit" className="submit-button">
             Valider
             <span className={styles.icon}>✔</span>
           </button>
