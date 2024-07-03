@@ -1,8 +1,4 @@
-// pages/about.js
-
-
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from 'next/router'; 
 import styles from "../app/styles/about.css";
 
@@ -13,6 +9,9 @@ export default function About() {
   const [gender, setGender] = useState("");
   const router = useRouter(); 
 
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +56,7 @@ export default function About() {
                 name="gender"
                 value="homme"
                 checked={gender === "homme"}
-                onChange={(e) => setGender(e.target.value)}
+                onChange={handleGenderChange}
               />
               <label htmlFor="homme">Homme</label>
             </div>
@@ -68,7 +67,7 @@ export default function About() {
                 name="gender"
                 value="femme"
                 checked={gender === "femme"}
-                onChange={(e) => setGender(e.target.value)}
+                onChange={handleGenderChange}
               />
               <label htmlFor="femme">Femme</label>
             </div>
@@ -79,7 +78,7 @@ export default function About() {
                 name="gender"
                 value="autre"
                 checked={gender === "autre"}
-                onChange={(e) => setGender(e.target.value)}
+                onChange={handleGenderChange}
               />
               <label htmlFor="autre">Autre</label>
             </div>
