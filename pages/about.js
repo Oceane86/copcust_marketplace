@@ -15,8 +15,11 @@ export default function About() {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.aboutBox}>
+
+    <div className="container">
+
+        <div className="about-box">
+
         <h1>Parle nous de toi</h1>
         <form onSubmit={handleSubmit}>
           <input
