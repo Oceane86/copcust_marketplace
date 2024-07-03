@@ -25,6 +25,7 @@ body {
     border-radius: 8px;
     max-width: 400px;
     width: 100%;
+    line-height: 3.5rem;
   }
   
   .verification-box h1 {
@@ -122,3 +123,7 @@ body {
     margin-top: 1rem;
   }
   
+
+  .visually-hidden {
+    display: none;
+  }

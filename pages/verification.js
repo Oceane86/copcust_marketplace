@@ -66,22 +66,42 @@ export default function Verification() {
   return (
     <div className="container">
       <Head>
-        <title>Vérification de l'email</title>
-        <meta name="description" content="Vérifiez votre adresse e-mail pour activer votre compte." />
+        {/* Balises SEO optimisées */}
+        <title>Vérification de l'email - MyWebsite</title>
+        <meta name="description" content="Vérifiez votre adresse e-mail pour activer votre compte sur MyWebsite." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://www.mywebsite.com/verification" />
+        <meta property="og:title" content="Vérification de l'email - MyWebsite" />
+        <meta property="og:description" content="Vérifiez votre adresse e-mail pour activer votre compte sur MyWebsite." />
+        <meta property="og:url" content="https://www.mywebsite.com/verification" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.mywebsite.com/images/verification-og-image.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Vérification de l'email - MyWebsite" />
+        <meta name="twitter:description" content="Vérifiez votre adresse e-mail pour activer votre compte sur MyWebsite." />
+        <meta name="twitter:image" content="https://www.mywebsite.com/images/verification-twitter-image.jpg" />
       </Head>
       <div className="verification-box">
         <h1>Vérification mail</h1>
-        <p>Vérifiez votre boîte mail pour valider votre compte.</p>
+        <p>Checker ta boîte mail pour valider ton compte.</p>
+        <label htmlFor="email" className="visually-hidden">Adresse e-mail</label>
         <input
           type="email"
-          placeholder="Votre adresse e-mail"
+          id="email"
+          placeholder="Adresse e-mail"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="input-field"
           required
-          disabled // Désactivez l'entrée d'e-mail car elle sera automatiquement remplie
+          aria-required="true"
         />
-        <div className="resend-link" onClick={handleEmailVerification}>
+        <div 
+          className="resend-link" 
+          onClick={handleEmailVerification} 
+          role="button" 
+          tabIndex={0}
+          onKeyPress={(e) => { if (e.key === 'Enter') handleEmailVerification(); }}
+        >
           Renvoyer le code
         </div>
         <div className="container-button">
@@ -89,8 +109,8 @@ export default function Verification() {
             Valider
           </button>
         </div>
-        {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
-        {verificationSuccess && <p className={styles.successMessage}>Compte vérifié avec succès ! Redirection...</p>}
+        {verificationError && <p className={styles.errorMessage} role="alert">{verificationError}</p>}
+        {verificationSuccess && <p className={styles.successMessage} role="alert">Compte vérifié avec succès ! Redirection...</p>}
       </div>
     </div>
   );

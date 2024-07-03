@@ -64,7 +64,6 @@ export default function Login() {
 
   const handleAppleLogin = () => {
     alert("La connexion avec Apple sera bientôt disponible !");
-    // Vous pouvez également rediriger vers une page d'information ou laisser le message d'alerte
   };
 
   return (
@@ -98,7 +97,11 @@ export default function Login() {
           <div className="forgot-password">
             <a href="#" onClick={handleForgotPassword}>Mot de passe oublié ?</a>
           </div>
-          <button type="submit" className="login-button">Connexion</button>
+
+          <div className="container-button">
+            <button type="submit" className="login-button">Connexion</button>
+
+          </div>
         </form>
         <div className="divider" role="separator"></div>
         <div className="other-login">

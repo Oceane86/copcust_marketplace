@@ -97,7 +97,7 @@ export default function About() {
           <div className="container-button">
             <button type="submit" className="submit-button">
               Valider
-              <span className={styles.icon}>✔</span>
+              <span className={styles.icon}> ✔</span>
             </button>
           </div>
         </form>

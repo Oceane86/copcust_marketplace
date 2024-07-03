@@ -65,6 +65,7 @@ body {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
+    margin-left: -1rem;
   }
   
   .gender-option input {

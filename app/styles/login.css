@@ -2,7 +2,6 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,16 +20,16 @@ body {
     background: #fff;
     padding: 2rem;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     max-width: 400px;
     width: 100%;
+    line-height: 3rem;
   }
   
   .login-box h1 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1.5rem;
-    text-align: center;
+    text-align: left;
   }
   
   .input-field {
@@ -67,8 +66,13 @@ body {
     display: flex;
   }
   
+  .container-button {
+    display: flex;
+    justify-content: center;
+  }
+
   .login-button {
-    width: 100%;
+    width:50%;
     padding: 0.75rem;
     background-color: #000;
     color: #fff;

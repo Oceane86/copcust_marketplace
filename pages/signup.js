@@ -7,7 +7,8 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import Head from "next/head"; // Pour l'optimisation SEO
 import "../app/styles/signup.css";
-import eyeIcon from "../pages/assets/img/eye.png";
+
+const eyeIcon = "../pages/assets/img/eye.png";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -124,12 +125,16 @@ export default function Signup() {
               required
               aria-required="true"
             />
-            <img
-              src={eyeIcon}
-              alt="Afficher/cacher le mot de passe"
+            <span
+              role="button"
+              aria-label={passwordVisible ? "Cacher le mot de passe" : "Afficher le mot de passe"}
               className="password-toggle"
               onClick={togglePasswordVisibility}
-            />
+              tabIndex={0}
+              onKeyPress={(e) => { if (e.key === 'Enter') togglePasswordVisibility(); }}
+            >
+              👁
+            </span>
           </div>
           <label htmlFor="password_confirmation" className="sr-only">Confirmation du mot de passe</label>
           <div className="password_confirmation-input-container">
@@ -151,9 +156,18 @@ export default function Signup() {
             • une majuscule minimum,<br />
             • une minuscule minimum
           </small>
-          <button type="submit" className="signup-button">
-            Valider
-          </button>
+
+          <div className="container-button">
+            <button type="submit" className="signup-button">
+              Valider
+            </button>
+            
+          </div>
+
+          <div className="login-link-container">
+            <p><a href="/login" className="login-link">J'ai déjà un compte ? </a></p>
+          </div>
+        
         </form>
         {signupSuccess && (
           <p className="success-message">Compte créé avec succès. Redirection vers la page de vérification...</p>
