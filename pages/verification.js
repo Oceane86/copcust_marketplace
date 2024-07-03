@@ -47,9 +47,11 @@ export default function Verification() {
           Renvoyer le code
         </div>
 
-        <button onClick={handleEmailVerification}  className="login-button">
-          Valider
-        </button>
+        <div className="container-button">
+            <button onClick={handleEmailVerification}  className="login-button">
+            Valider
+            </button>
+        </div>
 
         {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
         {verificationSuccess && <p className={styles.successMessage}>Un email de vérification a été envoyé ! Veuillez vérifier votre boîte de réception.</p>}
