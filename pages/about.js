@@ -82,10 +82,15 @@ export default function About() {
               <label htmlFor="autre">Autre</label>
             </div>
           </div>
+
+          <div className="container-button">
           <button type="submit" className="submit-button">
             Valider
             <span className={styles.icon}>✔</span>
           </button>
+
+          </div>
+          
         </form>
       </div>
     </div>
