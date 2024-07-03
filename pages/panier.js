@@ -1,5 +1,8 @@
+// pages/panier.js
+
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import styles from "../app/styles/panier.css";
 
 export default function Panier() {
   const [items, setItems] = useState([]);
@@ -27,37 +30,36 @@ export default function Panier() {
   };
 
   return (
-    <div className="p-24">
-      <h1 className="text-4xl font-bold mb-8">Panier</h1>
+    <div className={styles.container}>
+      <h1 className={styles.title}>Panier</h1>
       {items.length === 0 ? (
         <p>Votre panier est vide.</p>
       ) : (
-        <div>
+        <div className={styles.cartItems}>
           {items.map((item, index) => (
-            <div key={index} className="border p-4 rounded-lg mb-4">
-              <h2 className="text-2xl font-semibold">{item.name}</h2>
-              <p>{item.description}</p>
-              <p className="text-xl font-bold">${item.price}</p>
-              <button
-                className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-                onClick={() => removeItemFromCart(index)}
-              >
-                Supprimer
-              </button>
+            <div key={index} className={styles.cartItem}>
+              <img src={item.image} alt={item.name} className={styles.image} />
+              <div className={styles.details}>
+                <h2>{item.name}</h2>
+                <p>{item.description}</p>
+                <p>{item.price} €</p>
+                <div className={styles.quantity}>
+                  <button>-</button>
+                  <span>0</span>
+                  <button>+</button>
+                </div>
+                <button onClick={() => removeItemFromCart(index)}>Supprimer</button>
+              </div>
             </div>
           ))}
-          <button
-            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-            onClick={proceedToCheckout}
-          >
-            Procéder au paiement
-          </button>
-          <button
-            className="mt-4 bg-gray-500 text-white px-4 py-2 rounded ml-4"
-            onClick={clearCart}
-          >
-            vider le panier
-          </button>
+          <div className={styles.summary}>
+            <p>LIVRAISON : 5 a 8 jours ouvres offerte</p>
+            <p>PRIX : 900 €</p>
+            <p>Dont TVA Incluse : 150 €</p>
+            <p>TOTAL : 900 €</p>
+            <button onClick={proceedToCheckout}>Payer</button>
+            <button onClick={clearCart}>vider le panier</button>
+          </div>
         </div>
       )}
     </div>
