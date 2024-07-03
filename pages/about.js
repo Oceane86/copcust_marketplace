@@ -1,5 +1,6 @@
 // pages/about.js
 
+
 import React from "react";
 import { useState } from "react";
 import styles from "../app/styles/about.css";
@@ -12,14 +13,12 @@ export default function About() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Handle form submission logic here
   };
 
   return (
-
     <div className="container">
-
-        <div className="about-box">
-
+      <div className="about-box">
         <h1>Parle nous de toi</h1>
         <form onSubmit={handleSubmit}>
           <input
@@ -35,7 +34,7 @@ export default function About() {
             placeholder="Prénom*"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
-           className="input-field"
+            className="input-field"
             required
           />
           <input
@@ -43,13 +42,14 @@ export default function About() {
             placeholder="Date de naissance"
             value={birthDate}
             onChange={(e) => setBirthDate(e.target.value)}
-           className="input-field"
+            className="input-field"
             required
           />
           <div className="gender-container">
             <label className="gender-label">Genre</label>
             <div className="gender-option">
               <input
+                type="radio"
                 id="homme"
                 name="gender"
                 value="homme"
@@ -60,6 +60,7 @@ export default function About() {
             </div>
             <div className="gender-option">
               <input
+                type="radio"
                 id="femme"
                 name="gender"
                 value="femme"
@@ -70,6 +71,7 @@ export default function About() {
             </div>
             <div className="gender-option">
               <input
+                type="radio"
                 id="autre"
                 name="gender"
                 value="autre"
@@ -79,15 +81,12 @@ export default function About() {
               <label htmlFor="autre">Autre</label>
             </div>
           </div>
-
           <div className="container-button">
-          <button type="submit" className="submit-button">
-            Valider
-            <span className={styles.icon}>✔</span>
-          </button>
-
+            <button type="submit" className="submit-button">
+              Valider
+              <span className={styles.icon}>✔</span>
+            </button>
           </div>
-          
         </form>
       </div>
     </div>
