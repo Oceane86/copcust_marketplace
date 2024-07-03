@@ -50,7 +50,6 @@ export default function About() {
             <label className="gender-label">Genre</label>
             <div className="gender-option">
               <input
-                type="radio"
                 id="homme"
                 name="gender"
                 value="homme"
@@ -61,7 +60,6 @@ export default function About() {
             </div>
             <div className="gender-option">
               <input
-                type="radio"
                 id="femme"
                 name="gender"
                 value="femme"
@@ -72,7 +70,6 @@ export default function About() {
             </div>
             <div className="gender-option">
               <input
-                type="radio"
                 id="autre"
                 name="gender"
                 value="autre"
