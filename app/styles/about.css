@@ -115,3 +115,9 @@ body {
     color: #fff;
   }
   
+
+  input#homme,
+  input#femme,
+  input#autre {
+    display: grid;
+}

@@ -1,60 +1,96 @@
 // pages/verification.js
 
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { sendEmailVerification } from "firebase/auth";
+import { applyActionCode, sendEmailVerification } from "firebase/auth";
 import { auth } from "../config/firebase";
+import Head from "next/head";
 import styles from "../app/styles/verification.css";
 
 export default function Verification() {
-  const [code, setCode] = useState("");
+  const [email, setEmail] = useState("");
   const [verificationError, setVerificationError] = useState(null);
   const [verificationSuccess, setVerificationSuccess] = useState(false);
   const router = useRouter();
+
+  useEffect(() => {
+    const handleVerifyEmail = async () => {
+      try {
+        const { mode, oobCode } = router.query;
+        if (mode === "verifyEmail" && oobCode) {
+          await applyActionCode(auth, oobCode);
+          const user = auth.currentUser;
+          setEmail(user.email);
+          setVerificationSuccess(true);
+
+          setTimeout(() => {
+            router.push("/about");
+          }, 2000);
+        }
+      } catch (error) {
+        console.error("Error verifying email:", error);
+        setVerificationError("Échec de la vérification de l'e-mail.");
+      }
+    };
+
+    handleVerifyEmail();
+  }, [router]);
 
   const handleEmailVerification = async () => {
     try {
       const user = auth.currentUser;
 
       if (user) {
+        if (email && user.email !== email) {
+          setVerificationError("L'adresse e-mail saisie ne correspond pas à celle de l'utilisateur connecté.");
+          return;
+        }
+
         await sendEmailVerification(user);
-        console.log("Verification email sent.");
+        console.log("E-mail de vérification envoyé.");
         setVerificationSuccess(true);
+        setVerificationError(null);
+
+        setTimeout(() => {
+          router.push("/about");
+        }, 2000);
       } else {
-        setVerificationError("No user is signed in.");
+        setVerificationError("Aucun utilisateur n'est connecté.");
       }
     } catch (error) {
-      console.error("Error sending verification email:", error);
-      setVerificationError("Failed to send verification email.");
+      console.error("Erreur lors de l'envoi de l'e-mail de vérification:", error);
+      setVerificationError("Échec de l'envoi de l'e-mail de vérification.");
     }
   };
 
   return (
     <div className="container">
+      <Head>
+        <title>Vérification de l'email</title>
+        <meta name="description" content="Vérifiez votre adresse e-mail pour activer votre compte." />
+      </Head>
       <div className="verification-box">
         <h1>Vérification mail</h1>
-        <p>Checker ta boite mail pour valider ton compte</p>
+        <p>Vérifiez votre boîte mail pour valider votre compte.</p>
         <input
-          type="text"
-          placeholder="Code de validation"
-          value={code}
-          onChange={(e) => setCode(e.target.value)}
-           className="input-field"
+          type="email"
+          placeholder="Votre adresse e-mail"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="input-field"
+          required
+          disabled // Désactivez l'entrée d'e-mail car elle sera automatiquement remplie
         />
-       
-        <div className="resend-link">
+        <div className="resend-link" onClick={handleEmailVerification}>
           Renvoyer le code
         </div>
-
         <div className="container-button">
-            <button onClick={handleEmailVerification}  className="login-button">
+          <button onClick={handleEmailVerification} className="login-button">
             Valider
-            </button>
+          </button>
         </div>
-
         {verificationError && <p className={styles.errorMessage}>{verificationError}</p>}
-        {verificationSuccess && <p className={styles.successMessage}>Un email de vérification a été envoyé ! Veuillez vérifier votre boîte de réception.</p>}
+        {verificationSuccess && <p className={styles.successMessage}>Compte vérifié avec succès ! Redirection...</p>}
       </div>
     </div>
   );

@@ -1,3 +1,6 @@
+// pages/login.js
+
+
 import "../app/styles/login.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
@@ -7,19 +10,29 @@ import Image from 'next/image';
 import GoogleIcon from "../pages/assets/img/google.svg";
 import AppleIcon from "../pages/assets/img/mac.svg";
 
-
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(null); // State to manage login errors
   const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoginError(null); // Reset login errors before attempting login
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/");
     } catch (error) {
       console.error("Error logging in:", error);
+      let errorMessage = "Erreur de connexion. Veuillez réessayer.";
+      if (error.code === "auth/invalid-email") {
+        errorMessage = "L'adresse e-mail saisie est invalide.";
+      } else if (error.code === "auth/user-not-found") {
+        errorMessage = "Aucun utilisateur trouvé avec cette adresse e-mail.";
+      } else if (error.code === "auth/wrong-password") {
+        errorMessage = "Le mot de passe est incorrect.";
+      }
+      setLoginError(errorMessage);
     }
   };
 
@@ -48,7 +61,6 @@ export default function Login() {
       alert(errorMessage);
     }
   };
-  
 
   const handleAppleLogin = () => {
     alert("La connexion avec Apple sera bientôt disponible !");
@@ -82,6 +94,7 @@ export default function Login() {
             required
             aria-required="true"
           />
+          {loginError && <p className="error-message">{loginError}</p>} {/* Display login errors */}
           <div className="forgot-password">
             <a href="#" onClick={handleForgotPassword}>Mot de passe oublié ?</a>
           </div>
@@ -93,10 +106,9 @@ export default function Login() {
           <div className="login-options">
             <button className="login-option" onClick={handleGoogleLogin} aria-label="Se connecter avec Google">
               <Image src={GoogleIcon} alt="Google" width={24} height={24} />
-
             </button>
             <button className="login-option" onClick={handleAppleLogin} aria-label="Se connecter avec Apple">
-            <Image src={AppleIcon} alt="Apple" width={24} height={24} />
+              <Image src={AppleIcon} alt="Apple" width={24} height={24} />
             </button>
           </div>
           <p className="new-account">

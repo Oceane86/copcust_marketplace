@@ -1,5 +1,9 @@
+// pages/about.js
+
+
 import React, { useState } from "react";
-import { useRouter } from 'next/router'; 
+import { useRouter } from 'next/router';
+import Head from "next/head"; // Pour l'optimisation SEO
 import styles from "../app/styles/about.css";
 
 export default function About() {
@@ -7,12 +11,14 @@ export default function About() {
   const [firstName, setFirstName] = useState("");
   const [birthDate, setBirthDate] = useState("");
   const [gender, setGender] = useState("");
-  const router = useRouter(); 
+  const router = useRouter();
 
+  // Fonction pour gérer le changement de genre
   const handleGenderChange = (e) => {
     setGender(e.target.value);
   };
 
+  // Fonction pour gérer la soumission du formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
     router.push('/');
@@ -20,6 +26,11 @@ export default function About() {
 
   return (
     <div className="container">
+      {/* Optimisation SEO */}
+      <Head>
+        <title>À propos de vous</title>
+        <meta name="description" content="Parlez-nous de vous en remplissant ce formulaire." />
+      </Head>
       <div className="about-box">
         <h1>Parle nous de toi</h1>
         <form onSubmit={handleSubmit}>

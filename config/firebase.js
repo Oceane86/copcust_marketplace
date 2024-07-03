@@ -3,6 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyDrGMbNtZWFF_gVSxZqdE6Y81xoOxUke2I",
     authDomain: "marketplace-c20b2.firebaseapp.com",
@@ -19,4 +20,6 @@ const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
 
+
 export { auth, db, googleProvider };
+
